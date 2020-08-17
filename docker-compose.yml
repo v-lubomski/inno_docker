@@ -1,0 +1,20 @@
+# version of compose-file format
+version: '3'
+# services wich will started
+services:
+    # service name
+    server:
+        # network container connect to for the RUN instructions during build 
+        network_mode: host\
+        # path to the build context
+        build: server/
+	# expose ports for container
+        ports:
+          - 5000:5000
+
+    # same commands, same comments...
+    client:
+        network_mode: host
+        build: client/
+        command: python client.py
+        
